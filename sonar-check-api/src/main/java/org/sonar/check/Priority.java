@@ -19,6 +19,10 @@
  */
 package org.sonar.check;
 
+/**
+ * @deprecated since 5.6 sonar-check-api is deprecated 
+ */
+@Deprecated
 public enum Priority {
   /**
    * WARNING : DO NOT CHANGE THE ENUMERATION ORDER
