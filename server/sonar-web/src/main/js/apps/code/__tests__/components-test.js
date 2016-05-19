@@ -1,24 +1,40 @@
+/*
+ * SonarQube
+ * Copyright (C) 2009-2016 SonarSource SA
+ * mailto:contact AT sonarsource DOT com
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 3 of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this program; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ */
 import chai, { expect } from 'chai';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 import { shallow } from 'enzyme';
 import React from 'react';
-import TestUtils from 'react-addons-test-utils';
 
-import Breadcrumb from '../../../src/main/js/apps/code/components/Breadcrumb';
-import Breadcrumbs from '../../../src/main/js/apps/code/components/Breadcrumbs';
-import ComponentDetach from '../../../src/main/js/apps/code/components/ComponentDetach';
-import ComponentMeasure from '../../../src/main/js/apps/code/components/ComponentMeasure';
-import ComponentName from '../../../src/main/js/apps/code/components/ComponentName';
-import ComponentsEmpty from '../../../src/main/js/apps/code/components/ComponentsEmpty';
-import Truncated from '../../../src/main/js/apps/code/components/Truncated';
+import Breadcrumb from '../components/Breadcrumb';
+import Breadcrumbs from '../components/Breadcrumbs';
+import ComponentDetach from '../components/ComponentDetach';
+import ComponentMeasure from '../components/ComponentMeasure';
+import ComponentName from '../components/ComponentName';
+import ComponentsEmpty from '../components/ComponentsEmpty';
+import Truncated from '../components/Truncated';
 
-import { getComponentUrl } from '../../../src/main/js/helpers/urls';
-import QualifierIcon from '../../../src/main/js/components/shared/qualifier-icon';
-
+import { getComponentUrl } from '../../../helpers/urls';
+import QualifierIcon from '../../../components/shared/qualifier-icon';
 
 chai.use(sinonChai);
-
 
 const measures = [
   { metric: 'ncloc', value: 9757 }
@@ -28,12 +44,11 @@ const exampleComponent = {
   key: 'A',
   name: 'AA',
   qualifier: 'TRK',
-  measures: measures
+  measures
 };
 const exampleComponent2 = { uuid: 'B2', key: 'B' };
 const exampleComponent3 = { uuid: 'C3', key: 'C' };
 const exampleOnBrowse = sinon.spy();
-
 
 describe('Code :: Components', () => {
 
@@ -48,7 +63,7 @@ describe('Code :: Components', () => {
       expect(output.type())
           .to.equal(ComponentName);
       expect(output.props())
-          .to.deep.equal({ component: exampleComponent, onBrowse: exampleOnBrowse })
+          .to.deep.equal({ component: exampleComponent, onBrowse: exampleOnBrowse });
     });
   });
 
