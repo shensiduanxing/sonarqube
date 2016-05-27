@@ -378,7 +378,7 @@ public class IssuesModeTest {
   private void runConcurrentIssues(final String workDirPath) throws Exception {
     // Install sonar-runner in advance to avoid concurrent unzip issues
     FileSystem fileSystem = orchestrator.getConfiguration().fileSystem();
-    new SonarScannerInstaller(fileSystem).install(Version.create(SonarScanner.DEFAULT_SCANNER_VERSION), fileSystem.workspace(), false);
+    new SonarScannerInstaller(fileSystem).install(Version.create(SonarScanner.DEFAULT_SCANNER_VERSION), fileSystem.workspace(), true);
     final int nThreads = 3;
     ExecutorService executorService = Executors.newFixedThreadPool(nThreads);
     List<Callable<BuildResult>> tasks = new ArrayList<>();
